@@ -9,13 +9,6 @@ def file_read(filename: str) -> Generator:
     f.close()
 
 
-cm: ContextManager[IO] = file_read("input")
-
-
-with cm as input_file:
-    data: List[str] = input_file.read().splitlines()
-
-
 def process_password(password: str) -> bool:
     """
     Processes a password line, for example:
@@ -35,12 +28,6 @@ def process_password(password: str) -> bool:
     if pass_to_check.count(letter) in range(*range_values):
         return True
     return False
-
-
-count: int = 0
-for password in data:
-    count += process_password(password)
-print(count)
 
 
 def updated_password_check(password: str) -> bool:
@@ -65,7 +52,15 @@ def updated_password_check(password: str) -> bool:
     return False
 
 
-updated_count: int = 0
-for password in data:
-    updated_count += updated_password_check(password)
-print(updated_count)
+if __name__ == "__main__":
+    cm: ContextManager[IO] = file_read("input")
+    with cm as input_file:
+        data: List[str] = input_file.read().splitlines()
+    count: int = 0
+    updated_count: int = 0
+    for password in data:
+        count += process_password(password)
+    for password in data:
+        updated_count += updated_password_check(password)
+    print(count)
+    print(updated_count)

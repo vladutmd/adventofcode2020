@@ -1,4 +1,5 @@
 from math import prod
+from timeit import timeit
 from typing import List, Dict, ContextManager, Generator, IO
 from contextlib import contextmanager
 
@@ -7,13 +8,6 @@ def file_read(filename: str) -> Generator:
     f = open(filename)
     yield f
     f.close()
-
-cm: ContextManager[IO] = file_read('input')
-
-with cm as input_file:
-    data: str = input_file.read()
-
-numbers: List[int] = [int(i) for i in data.split()]
 
 def find_sum_two(numbers_list: List[int], n: int) -> List[int]:
     """
@@ -33,7 +27,6 @@ def find_sum_two(numbers_list: List[int], n: int) -> List[int]:
             found[number] = 0
     return []
 
-print(prod(find_sum_two(numbers, 2020)))
 
 def find_sum_three(numbers_list: List, n: int) -> List[int]:
     """
@@ -52,5 +45,10 @@ def find_sum_three(numbers_list: List, n: int) -> List[int]:
             return [number, *two_numbers]
     return []
 
-
-print(prod(find_sum_three(numbers, 2020)))
+if __name__ == '__main__':
+    cm: ContextManager[IO] = file_read('input')
+    with cm as input_file:
+        data: str = input_file.read()
+    numbers: List[int] = [int(i) for i in data.split()]
+    print(prod(find_sum_two(numbers, 2020)))
+    print(prod(find_sum_three(numbers, 2020)))
