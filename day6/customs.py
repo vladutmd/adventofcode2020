@@ -15,7 +15,7 @@ def count_answers(group: List[str]) -> int:
     Returns an integer.
     """
     n_answers: int = 0
-    unique_answers: Set[int] = set()
+    unique_answers: Set[str] = set()
     for answers in group:
         for answer in answers:
             unique_answers.add(answer)
@@ -49,7 +49,7 @@ if __name__ == "__main__":
         count += count_answers(group)
     print(count)
 
-    count: int = 0
+    new_count: int = 0
     for group in groups:
-        count += count_all_answers(group)
+        new_count += count_all_answers(group)
     print(count)
