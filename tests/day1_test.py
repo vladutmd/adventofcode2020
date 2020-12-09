@@ -3,7 +3,7 @@ from typing import List
 
 import pytest
 
-from search import find_sum_three, find_sum_two
+from ..day1.search import find_sum_three, find_sum_two
 
 
 @pytest.fixture

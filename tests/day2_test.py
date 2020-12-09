@@ -2,7 +2,7 @@ from typing import List
 
 import pytest
 
-from count import process_password, updated_password_check
+from ..day2.count import process_password, updated_password_check
 
 
 @pytest.fixture

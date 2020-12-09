@@ -1,10 +1,11 @@
+import os
 from contextlib import contextmanager
 from math import prod
 from typing import IO, ContextManager, Generator, List, Tuple
 
 import pytest
 
-from trajectory import slide_down
+from ..day3.trajectory import slide_down
 
 
 @contextmanager
@@ -19,7 +20,8 @@ def processed_map() -> List[List[int]]:
     """
     Returns the test input.
     """
-    cm: ContextManager[IO] = file_read("testinput")
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    cm: ContextManager[IO] = file_read(dir_path + "/testinputs/day3")
     with cm as input_file:
         input_map: List[str] = input_file.read().splitlines()
     processed: List[List[int]] = [[0 if i == "." else 1 for i in j] for j in input_map]

@@ -2,7 +2,7 @@ from collections import deque
 from contextlib import contextmanager
 from typing import IO, ContextManager, Deque, Generator, List
 
-from search import find_sum_two
+from .search import find_sum_two
 
 
 @contextmanager

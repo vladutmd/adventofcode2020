@@ -1,10 +1,11 @@
+import os
 from collections import deque
 from contextlib import contextmanager
 from typing import IO, ContextManager, Deque, Generator, List
 
 import pytest
 
-from crack import break_encryption, process_list
+from ..day9.crack import break_encryption, process_list
 
 
 @contextmanager
@@ -19,7 +20,8 @@ def list_1() -> List[int]:
     """
     Returns the test input for part 1.
     """
-    cm: ContextManager[IO] = file_read("testinput")
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    cm: ContextManager[IO] = file_read(dir_path + "/testinputs/day9")
     with cm as input_file:
         numbers: List[int] = [int(line) for line in input_file.read().splitlines()]
     return numbers

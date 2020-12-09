@@ -1,9 +1,10 @@
+import os
 from contextlib import contextmanager
 from typing import IO, ContextManager, Generator, List
 
 import pytest
 
-from customs import count_all_answers, count_answers
+from ..day6.customs import count_all_answers, count_answers
 
 
 @contextmanager
@@ -18,7 +19,8 @@ def groups() -> List[List[str]]:
     """
     Returns the test input.
     """
-    cm: ContextManager[IO] = file_read("testinput")
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    cm: ContextManager[IO] = file_read(dir_path + "/testinputs/day6")
     with cm as input_file:
         groups: List[List[str]] = [
             j
