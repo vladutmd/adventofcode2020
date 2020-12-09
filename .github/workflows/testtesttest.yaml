@@ -1,4 +1,4 @@
-name: Santa says test test test!
+name: Santa says test test test means the bad year is finally
 on: [push]
 
 jobs:
