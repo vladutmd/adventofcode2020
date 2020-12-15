@@ -1,7 +1,16 @@
 from collections import defaultdict
 from contextlib import contextmanager
-from typing import (IO, ContextManager, DefaultDict, Generator, List, Optional,
-                    Tuple, Union, Dict)
+from typing import (
+    IO,
+    ContextManager,
+    DefaultDict,
+    Dict,
+    Generator,
+    List,
+    Optional,
+    Tuple,
+    Union,
+)
 
 
 @contextmanager
