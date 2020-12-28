@@ -42,13 +42,6 @@ def play_cups(arrangement: Deque[int]) -> str:
     return final
 
 
-def play_cups_dict(arrangement: Dict[int, int]) -> str:
-    """
-    This function plays cups.
-    """
-    pass
-
-
 def part1_with_dict(inputstring: str) -> str:
 
     cups = [int(num) for num in inputstring]
